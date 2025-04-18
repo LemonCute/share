@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get IP Address using ipify</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+<div class="bg-white p-8 rounded shadow-md">
+  <h1 class="text-2xl font-bold mb-4">Your IP Address</h1>
+  <p id="ip-address" class="text-gray-700">Loading...</p>
+</div>
+<script>
+  fetch('https://api.ipify.org?format=json')
+          .then(response => response.json())
+          .then(data => {
+            const ipAddress = data.ip;
+            document.getElementById('ip-address').textContent = `Your IP address is: ${ipAddress}`;
+          })
+          .catch(error => {
+            document.getElementById('ip-address').textContent = 'Error fetching IP address.';
+            console.error('Error:', error);
+          });
+</script>
+</body>
+
+</html>
