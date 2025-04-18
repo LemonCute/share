@@ -24,3 +24,8 @@ git commit -m 'deploy'
 git push -f git@github.com:LemonCute/share.git main:pages
 
 cd -
+
+
+################################################################
+github\share\dist> git push -f pages dist:pages
+github\share> git push -f origin main
